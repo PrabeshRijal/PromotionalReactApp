@@ -1,0 +1,587 @@
+// global variables and mixins
+@import "global_variables.scss";
+@import "global_mixins.scss";
+// global variables and mixins
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h1, h2, h3, h4, h5, h6
+{
+    font-family: 'Roboto', sans-serif;
+}
+p, a, ul, li, ol, span
+{
+    font-family: 'Roboto', sans-serif;
+}
+.navigation-section {
+    position: relative;
+    z-index: 1000;
+    .navigation-wrapper {
+        .brand-logo {
+            position: absolute;
+            z-index: 5;
+            top: 2rem;
+            left: 2rem;
+            h1{
+                font-size: 2.2rem;
+                color: rgb(139, 139, 139);
+                font-weight: $fw-600;
+            }
+        }
+    }
+    .logo-deco {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 7rem;
+        width: 10rem;
+        background: $global-color-secondary;
+        opacity: 0.2;
+        border-radius: 0rem 0rem 2rem 0rem;
+    }
+    .main-menu {
+        position: absolute;
+        right: 8rem;
+        top: 1rem;
+        ul {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            li {
+                list-style-type: none;
+                padding: 1.5rem 2.5rem;
+                a {
+                    font-size: 1.2rem;
+                    font-weight: $fw-500;
+                    color: $global-color-white;
+                    text-shadow: $global-text-shadow-dark;
+                }
+            }
+        }
+    }
+}
+.home-parent-section {
+    // background: brown;
+    height: 46rem;
+    width: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    .home-banner-wrapper
+    {
+        position: relative;
+        width: 100%;
+        .left-side-container
+        {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 44rem;
+            width: 70vw;
+            // background: $my-gradient-test,url("../images/header-sm-img.jpg") ;
+            // background: linear-gradient(rgba(243, 243, 243, 0.7), rgba(243, 243, 243, 0.7)), url("../images/header-sm-img.jpg");
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../images/header-sm-img.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            border-radius: 0rem 0rem 0rem 5rem;
+        }
+        // mobile css
+        .mobile-outer-wrapper {
+            position: absolute;
+            z-index: 100;
+            top: 14rem;
+            right: 66rem;
+            height: 44rem;
+            width: 23rem;
+            background: $device-outer-color;
+            box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.26);
+            border-radius: 1.8rem;
+            padding: 0.4rem;
+            @include flexPropertyCentered;
+            .mobile-inner-wrapper {
+                position: relative;
+                height: 100%;
+                width: 100%;
+                background: rgb(255, 255, 255);
+                border-radius: 1.8rem;
+                .mobile-notch {
+                    position: absolute;
+                    top: 2%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    height: 2rem;
+                    width: 10rem;
+                    background: $device-outer-color;
+                    border-radius: 0rem 0rem 1rem 1rem;
+                    z-index: 200;
+                    .mobile-microphone {
+                        height: 0.5rem;
+                        width: 5rem;
+                        background: #c3c4c7;
+                        margin: 0.6rem auto;
+                        border-radius: 2rem;
+                        position: relative;
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            top: 0;
+                            height: 0.6rem;
+                            width: 0.6rem;
+                            background: #c3c4c7;
+                            transform: translateX(5.6rem) translateY(-0.1rem);
+                            border-radius: 100%;
+                        }
+                    }
+                }
+                .volume-btn
+                {
+                    position: absolute;
+                    top: 4rem;
+                    left: -12px;
+                    height: 5rem;
+                    width: 0.5rem;
+                    background: $device-outer-color;
+                    z-index: 100;
+                    border-radius: 1rem 0rem 0rem 1rem;
+                    box-shadow: 0rem 0rem 0.5rem 0rem #7474743f;
+                }
+                .lock-onlock-btn {
+                    position: absolute;
+                    top: 10rem;
+                    left: -12px;
+                    height: 3rem;
+                    width: 0.5rem;
+                    background: $device-outer-color;
+                    z-index: 100;
+                    border-radius: 1rem 0rem 0rem 1rem;
+                    box-shadow: 0rem 0rem 0.5rem 0rem #7474743f;
+                }
+                .network {
+                    position: absolute;
+                    top: 0;
+                    left: 1rem;
+                    z-index: 500;
+                    i {
+                        color: $global-color-white;
+                        font-size: 1.4rem;
+                    }
+                }
+                .wifi {
+                    position: absolute;
+                    top: 0;
+                    right: 3.4rem;
+                    z-index: 500;
+                    i {
+                        color: $global-color-white;
+                        font-size: 1.4rem;
+                    }
+                }
+                .battery {
+                    position: absolute;
+                    top: 0;
+                    right: 1rem;
+                    z-index: 500;
+                    i {
+                        color: $global-color-white;
+                        font-size: 1.4rem;
+                    }
+                }
+                .mobile-footer {
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    z-index: 100;
+                    // height: 3.2rem;
+                    width: 100%;
+                    background: #f5f5f5;
+                    border-radius: 0rem 0rem 1.6rem 1.6rem;
+                    box-shadow: 0rem 1rem 0.5rem 0rem #b8b8b831;
+                    ul {
+                        display: flex;
+                        @include noMarginPadding;
+                        li {
+                            list-style: none;
+                            width: 100%;
+                            height: 3rem;
+                            line-height: 3rem;
+                            text-align: center;
+                            i {
+                                color: #e31c1cad;
+                                font-size: 1.3rem;
+                            }
+                        }
+                    }
+                }
+                .profile-wrapper {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    height: 20rem;
+                    width: 100%;
+                    border-radius: 1.6rem 1.6rem 0 0;
+                    background: $my-gradient-test, url("../images/img-4.jpg");
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: cover;
+                }
+                .profile-image-info {
+                    position: absolute;
+                    top: 38%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    height: 16rem;
+                    width: 90%;
+                    border-radius: 1rem;
+                    background: rgba(255, 255, 255, 0.897);
+                    box-shadow: 0 0 0.5rem 0 #0000002a;
+                    .profile-image {
+                        height: 8rem;
+                        width: 8rem;
+                        margin: auto;
+                        border: 0.3rem solid #f8f8f8;
+                        background: $global-color-white;
+                        border-radius: 100%;
+                        margin-top: -4.1rem;
+                        box-shadow: 0 0 0.5rem 0 #00000050;
+                        img {
+                            height: auto;
+                            width: 100%;
+                            border-radius: 100%;
+                        }
+                    }
+                    .profile-info-wrapper {
+                        margin: 0.6rem 0rem;
+                        .profile-basic-info {
+                            h2 {
+                                font-size: 1.6rem;
+                                text-align: center;
+                                font-weight: $fw-600;
+                                color: #8b8b8b;
+                            }
+                            p {
+                                font-size: 1.2rem;
+                                text-align: center;
+                                font-weight: $fw-500;
+                                color: #E29828;
+                                text-shadow: 1px 2px 10px #00000018;
+                                @include noMarginPadding;
+                                margin-top: -0.5rem;
+                            }
+                            i {
+                                color: rgb(10, 158, 10);
+                            }
+                        }
+                        .social-media-icon {
+                            display: flex;
+                            justify-content: center;
+                            a {
+                                padding: 0rem 0.6rem;
+                                .my-social-icon {
+                                    @include flexPropertyCentered;
+                                    i {
+                                        color: rgb(82, 82, 82);
+                                        font-size: 1.6rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .profile-experience-info {
+                        .experience-parent-class {
+                            display: flex;
+                            justify-content: space-around;
+                            padding: 0rem 0.2rem;
+                            .experice-child {
+                                p {
+                                    text-align: center;
+                                    font-size: 1rem;
+                                    color: rgb(172, 172, 172);
+                                    font-weight: $fw-500;
+                                }
+                                h2 {
+                                    text-align: center;
+                                    font-size: 2rem;
+                                    color: rgb(177, 177, 177);
+                                    font-weight: $fw-600;
+                                    margin-top: -1rem;
+                                }
+                            }
+                        }
+                    }
+                    .my-expertise {
+                        h2 {
+                            text-align: center;
+                            font-size: 1.4rem;
+                            margin-top: 1.4rem;
+                            color: #7e7e7e;
+                        }
+                        .progress-bars-outer {
+                            .progress-bar-child {
+                                margin: 1rem 0rem;
+                                display: flex;
+                                .progress-bar-skill {
+                                    height: auto;
+                                    width: 3rem;
+                                    display: flex;
+                                    justify-content: start;
+                                    align-items: center;
+                                    h1 {
+                                        font-size: 1rem;
+                                        color: #7e7e7e;
+                                        @include noMarginPadding;
+                                    }
+                                }
+                                .progress-bar-inner {
+                                    .progress-bar-wrapper {
+                                        position: relative;
+                                        background: rgb(230, 230, 230);
+                                        height: 1.4rem;
+                                        width: 15rem;
+                                        border-radius: 2rem;
+                                        margin-left: 0.6rem;
+                                        .show-progress {
+                                            position: absolute;
+                                            top: 0;
+                                            left: 0;
+                                            height: 100%;
+                                            border-radius: 2rem;
+                                        }
+                                        p {
+                                            position: absolute;
+                                            right: 6px;
+                                            top: 0;
+                                            z-index: 20;
+                                            font-size: 1rem;
+                                            color: #707070;
+                                        }
+                                    }
+                                }
+                                &:first-child > .progress-bar-inner {
+                                    .progress-bar-wrapper {
+                                        .show-progress {
+                                            width: 85%;
+                                            background: #B71717;
+                                        }
+                                    }
+                                }
+                                &:nth-child(2) > .progress-bar-inner {
+                                    .progress-bar-wrapper {
+                                        .show-progress {
+                                            width: 80%;
+                                            background: #2955BC;
+                                        }
+                                    }
+                                }
+                                &:nth-child(3) > .progress-bar-inner {
+                                    .progress-bar-wrapper {
+                                        .show-progress {
+                                            width: 70%;
+                                            background: #2ED4B2;
+                                        }
+                                    }
+                                }
+                                &:nth-child(4) > .progress-bar-inner {
+                                    .progress-bar-wrapper {
+                                        .show-progress {
+                                            width: 80%;
+                                            background: #921CEB;
+                                        }
+                                    }
+                                }
+                                &:last-child > .progress-bar-inner {
+                                    .progress-bar-wrapper {
+                                        .show-progress {
+                                            width: 60%;
+                                            background: #2955BC;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        // mobile css
+        // macbook css
+        .macbook-outer-wrapper {
+            position: absolute;
+            z-index: 50;
+            top: 7rem;
+            right: 4rem;
+            height: 44rem;
+            width: 76rem;
+            background: $device-outer-color;
+            box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.26);
+            border-radius: 1.8rem;
+            padding: 0.6rem;
+            .macbook-inner-wrapper {
+                position: relative;
+                height: 100%;
+                width: 100%;
+                background: rgb(255, 255, 255);
+                border-radius: 1.8rem;
+                .macbook-logo {
+                    position: absolute;
+                    height: 5rem;
+                    width: 100%;
+                    background: $device-outer-color;
+                    bottom: 0;
+                    right: 0;
+                    border-radius: 0rem 0rem 1.6rem 1.6rem;
+                    @include flexPropertyCentered;
+                    i {
+                        color: #b6b5b5;
+                        font-size: 3.6rem;
+                    }
+                }
+                .awesome-design {
+                    position: absolute;
+                    top: 2.4rem;
+                    left: 1rem;
+                    h2 {
+                        font-size: 1.4rem;
+                        color: #a8a8a8;
+                    }
+                }
+                .my-slider-box-outer {
+                    height: 86%;
+                    width: 80%;
+                    position: absolute;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position:center;
+                    right: 0;
+                    top: 0;
+                    box-shadow: 0 0 0.5rem 0 #0000000a;
+                    border-radius: 1.6rem;
+                    margin-top: 0.6rem;
+                    margin-right: 0.6rem;
+                    .my-slider-box-inner {
+                        position: relative;
+                        height: 100%;
+                        width: 100%;
+                        border-radius: 1.6rem;
+                        .search-box {
+                            background: rgb(245, 245, 245);
+                            border-radius: 0.2rem;
+                            margin: 1.4rem 1rem 1rem 1rem;
+                            padding: 0.6rem 0.6rem;
+                            p {
+                                @include noMarginPadding;
+                                font-size: 1.2rem;
+                                color: #8f8f8f;
+                                margin-left: 1rem;
+                              .search-btn {
+                                    margin-right: 0.5rem;
+                                }
+                            }
+                        }
+                        .about-me-wrapper {
+                            margin: 0rem 1rem 1rem 1rem;
+                            padding: 0 1.6rem;
+                            h3 {
+                                color: #afafaf;
+                                font-size: 1.6rem;
+                            }
+                            .about-me-parent {
+                                display: inline-flex;
+                            }
+                            .about-me-childs:first-child {
+                                flex: 1;
+                            }
+                            .about-me-childs:last-child {
+                                flex: 2;
+                                .about-me-info {
+                                    p {
+                                        font-size: 1.4rem;
+                                        color: rgb(146, 146, 146);
+                                        padding: 0rem 1.6rem;
+                                    }
+                                    .about-more-info {
+                                        padding: 0rem 1.6rem;
+                                        h3 {
+                                            font-size: 1.4rem;
+                                            color: rgb(146, 146, 146);
+                                            i {
+                                                padding-right: 1rem;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .about-me-childs {
+                                img {
+                                    height: 16rem;
+                                    width: 100%;
+                                    object-fit: cover;
+                                    object-position: top;
+                                }
+                            }
+                        }
+                        .my-services-wrapper
+                        {
+                            margin: 0rem 1rem 1rem 1rem;
+                            padding: 0 1.6rem;
+                            h3 {
+                                color: #afafaf;
+                                font-size: 1.6rem;
+                            }
+                            .my-services-parent {
+                                display: flex;
+                                .my-services-childs {
+                                    position: relative;
+                                    height: 8rem;
+                                    width: 10rem;
+                                    @include flexPropertyCentered;
+                                    flex-direction: column;
+                                    border-radius: 1rem;
+                                    overflow: hidden;
+                                    margin: 0rem 1rem;
+                                    .overlay {
+                                        background: $my-gradient-test, url("../images/header-sm-img.jpg");
+                                        position: absolute;
+                                        background-position: center;
+                                        background-size: cover;
+                                        top: 0;
+                                        right: 0;
+                                        height: 100%;
+                                        width: 100%;
+                                    }
+                                    .services-icon {
+                                        border-radius: 100%;
+                                        @include flexPropertyCentered;
+                                        z-index: 100;
+                                        .services-icons {
+                                            color: $global-color-white;
+                                            font-size: 2rem;
+                                        }
+                                    }
+                                    .services-info {
+                                        z-index: 100;
+                                        h2 {
+                                            font-size: 1.2rem;
+                                            color: rgb(255, 255, 255);
+                                            margin-top: 0.6rem;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        // macbook css
+    }
+}
+// ------------responsiveness----------
+@media only screen and (min-width:1200px) {
+    .container {
+        max-width: 1462px !important;
+    }
+}
+// ------------responsiveness----------
